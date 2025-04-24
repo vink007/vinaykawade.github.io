@@ -8,154 +8,177 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #4a3728;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f5f2;
+            padding: 2rem;
         }
         header {
             text-align: center;
-            margin-bottom: 30px;
-            background-color: #e6ded5;
-            padding: 20px;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
             border-radius: 8px;
-            border-left: 5px solid #8c7a6b;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #5e4534;
-            margin-bottom: 5px;
-        }
-        h2 {
-            color: #6b5344;
-            margin-top: 30px;
-            border-bottom: 2px solid #d8cfc5;
-            padding-bottom: 5px;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
         }
         .date {
-            font-style: italic;
-            color: #8c7a6b;
-            margin-bottom: 20px;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
-        .intro {
-            font-size: 1.1em;
-            background-color: #fff;
-            padding: 15px;
+        .content-section {
+            background: white;
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(107, 83, 68, 0.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #f5f5f5;
+            padding-bottom: 0.5rem;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
         }
         em {
-            color: #6b5344;
+            color: #3498db;
             font-style: normal;
             font-weight: 500;
         }
-        ul {
-            background-color: #fff;
-            padding: 20px 20px 20px 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(107, 83, 68, 0.05);
-        }
-        li {
-            margin-bottom: 10px;
-        }
         .tips {
-            background-color: #ebe3d9;
-            padding: 15px;
+            background: #e8f4fc;
+            padding: 2rem;
             border-radius: 8px;
-            border-left: 5px solid #a18069;
-            margin-top: 30px;
+            margin-top: 2rem;
         }
-        .section {
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(107, 83, 68, 0.05);
-            margin-bottom: 20px;
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
         }
         img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
             border-radius: 8px;
-            margin: 10px 0;
+            margin: 0;
         }
         footer {
             text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #8c7a6b;
+            margin-top: 3rem;
+            color: #7f8c8d;
+        }
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            border-bottom: 1px solid #3498db;
+            transition: color 0.3s ease;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        .back-link:hover {
+            color: #2980b9;
+            border-bottom-color: #2980b9;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>A 7-Day Spring Adventure in Japan</h1>
-        <div class="date">April 12th – April 19th, 2025</div>
-    </header>
-    
-    <div class="intro">
-        We just returned from a 7-day trip to Japan, and wow — what a ride! From the buzz of Tokyo to the serene gardens of Kyoto, and the peaceful deers of Nara to the mighty Osaka Castle — we packed in a lot, and every moment was worth it.
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <header>
+            <h1>A 7-Day Spring Adventure in Japan</h1>
+            <div class="date">April 12th – April 19th, 2025</div>
+        </header>
+        
+        <div class="content-section">
+            <p>We just returned from a 7-day trip to Japan, and wow — what a ride! From the buzz of Tokyo to the serene gardens of Kyoto, and the peaceful deers of Nara to the mighty Osaka Castle — we packed in a lot, and every moment was worth it.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>Arrival in Tokyo</h2>
+            <p>We landed at Haneda Airport around 2 PM local time. The first thing we did was exchange our Japan Rail Pass (JR Pass) — a must-have if you're planning to travel across cities. You can purchase it online from the U.S., and then exchange the voucher at the JR counter in Japan by showing your passport. The JR Pass is only available to foreign visitors and is linked to your tourist visa.</p>
+            <div class="image-grid">
+                <img src="./images/daru.jpg" alt="daru">
+                <img src="./images/restaurant.jpg" alt="Tokyo restaurant">
+            </div>
+            <p>The JR Pass covers most major trains including the Shinkansen (bullet train), but note that some local/private lines are not covered. We planned ahead and booked hotels close to train stations — this made it super convenient to get around. For longer rides with luggage, we relied on ride-hailing apps like Uber, Didi, and GoTaxi.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>Tokyo: Temples, Towers & Tasty Eats</h2>
+            <p>We spent our first two days in Tokyo, exploring a mix of cultural and urban highlights:</p>
+            <ul>
+                <li><em>Meiji Shrine</em>: Peaceful and lush.</li>
+                <li><em>Shibuya Crossing</em>: Chaotic in the best way.</li>
+                <li><em>Akihabara Electric Town</em>: A techie paradise.</li>
+                <li><em>Miyashita Park</em>: Great views and surprisingly good food options.</li>
+            </ul>
+            <div class="image-grid">
+                <img src="./images/Miyashita.jpg" alt="Miyashita Park with neon lights">
+                <img src="./images/shibayu.jpg" alt="Tokyo cityscape with Shibuya crossing and skyscrapers">
+                <img src="./images/meiji.jpg" alt="Meiji Shrine with traditional architecture and cherry blossoms">
+                <img src="./images/meiji1.jpg" alt="Akihabara Electric Town with skyscrapers and neon lights">
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>Kyoto: Temples, Gardens & Sakura Heaven</h2>
+            <p>We took the bullet train to Kyoto (2 hours 35 minutes) — and yes, you can spot Mount Fuji on the way if you sit on the right side of the train! Pro tip: while reservations are an option, we found the unreserved cars often empty and easy to hop on.</p>
+            <p>In Kyoto, we spent 4 days soaking in history and beauty:</p>
+            <ul>
+                <li><em>To-ji Temple</em></li>
+                <li><em>Nijo Castle</em></li>
+                <li><em>Kinkaku-ji (Golden Pavilion)</em></li>
+                <li><em>Arashiyama Bamboo Forest</em></li>
+            </ul>
+            <div class="image-grid">
+                <img src="./images/ti-jo.jpg" alt="Kyoto temple with cherry blossoms in bloom">
+                <img src="./images/kinkakuji.jpg" alt="Kyoto temple with cherry blossoms in bloom">
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>Nara: Day trip</h2>
+            <p>A day trip to Fushimi Inari Taisha and Nara — Nara's giant Buddha and friendly deer are unforgettable.</p>
+            <div class="image-grid">
+                <img src="./images/nara.jpg" alt="Deer in Nara Park with temple in background">
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>Osaka: Wrapping It Up with a Castle</h2>
+            <p>On our last day, we headed to Osaka, where we had time to visit Osaka Castle before catching our flight home from Kansai Airport (about an hour from Osaka Station).</p>
+        </div>
+        
+        <div class="tips">
+            <h2>Tips for Travelers</h2>
+            <ul>
+                <li>Always carry some cash. While cards are accepted in big cities, many temples and small-town spots are cash-only.</li>
+                <li>Cherry blossom season is magical — the gardens around temples and castles are breathtaking.</li>
+                <li>Public transport is amazing, but plan ahead if you're carrying luggage.</li>
+                <li>Convenience stores like 7-Eleven are lifesavers! They're literally everywhere, and you can grab surprisingly good bento boxes, onigiri, sandwiches, hot snacks, and drinks — even late at night. Perfect for a quick meal after a long day.</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Vinay Kawade. All rights reserved.</p>
+        </footer>
     </div>
-    
-    <h2>Arrival in Tokyo</h2>
-    <div class="section">
-        We landed at Haneda Airport around 2 PM local time. The first thing we did was exchange our Japan Rail Pass (JR Pass) — a must-have if you're planning to travel across cities. You can purchase it online from the U.S., and then exchange the voucher at the JR counter in Japan by showing your passport. The JR Pass is only available to foreign visitors and is linked to your tourist visa.
-    </div>
-    
-    <h2>Getting Around</h2>
-    <div class="section">
-        The JR Pass covers most major trains including the Shinkansen (bullet train), but note that some local/private lines are not covered. We planned ahead and booked hotels close to train stations — this made it super convenient to get around. For longer rides with luggage, we relied on ride-hailing apps like Uber, Didi, and GoTaxi.
-    </div>
-    
-    <h2>Tokyo: Temples, Towers & Tasty Eats</h2>
-    <div class="section">
-        We spent our first two days in Tokyo, exploring a mix of cultural and urban highlights:
-        <ul>
-            <li><em>Meiji Shrine</em>: Peaceful and lush.</li>
-            <li><em>Shibuya Crossing</em>: Chaotic in the best way.</li>
-            <li><em>Akihabara Electric Town</em>: A techie paradise.</li>
-            <li><em>Miyashita Park</em>: Great views and surprisingly good food options.</li>
-        </ul>
-        <img src="/api/placeholder/800/400" alt="Tokyo cityscape with Shibuya crossing and skyscrapers">
-    </div>
-    
-    <h2>Kyoto: Temples, Gardens & Sakura Heaven</h2>
-    <div class="section">
-        We took the bullet train to Kyoto (2 hours 35 minutes) — and yes, you can spot Mount Fuji on the way if you sit on the right side of the train! Pro tip: while reservations are an option, we found the unreserved cars often empty and easy to hop on.
-        <br><br>
-        In Kyoto, we spent 4 days soaking in history and beauty:
-        <ul>
-            <li><em>To-ji Temple</em></li>
-            <li><em>Nijo Castle</em></li>
-            <li><em>Kinkaku-ji (Golden Pavilion)</em></li>
-            <li><em>Arashiyama Bamboo Forest</em></li>
-        </ul>
-        <img src="/api/placeholder/800/400" alt="Kyoto temple with cherry blossoms in bloom">
-    </div>
-    
-    <h2>Nara: Day trip</h2>
-    <div class="section">
-        A day trip to Fushimi Inari Taisha and Nara — Nara's giant Buddha and friendly deer are unforgettable.
-        <img src="/api/placeholder/800/400" alt="Deer in Nara Park with temple in background">
-    </div>
-    
-    <h2>Osaka: Wrapping It Up with a Castle</h2>
-    <div class="section">
-        On our last day, we headed to Osaka, where we had time to visit Osaka Castle before catching our flight home from Kansai Airport (about an hour from Osaka Station).
-        <img src="/api/placeholder/800/400" alt="Osaka Castle with spring foliage">
-    </div>
-    
-    <h2>Tips for Travelers</h2>
-    <div class="tips">
-        <ul>
-            <li>Always carry some cash. While cards are accepted in big cities, many temples and small-town spots are cash-only.</li>
-            <li>Cherry blossom season is magical — the gardens around temples and castles are breathtaking.</li>
-            <li>Public transport is amazing, but plan ahead if you're carrying luggage.</li>
-            <li>Convenience stores like 7-Eleven are lifesavers! They're literally everywhere, and you can grab surprisingly good bento boxes, onigiri, sandwiches, hot snacks, and drinks — even late at night. Perfect for a quick meal after a long day.</li>
-        </ul>
-    </div>
-    
-    <footer>
-        <p>Travel blog created April 2025</p>
-    </footer>
 </body>
 </html>
