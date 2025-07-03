@@ -155,7 +155,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
 }
 
 .logo {
@@ -264,7 +264,7 @@ li {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -365,7 +365,7 @@ li {
 
 /* ===== SECTIONS ===== */
 .section {
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-md) 0;
 }
 
 .section-title {
@@ -605,6 +605,11 @@ li {
   margin-top: var(--spacing-lg);
 }
 
+/* Reduce vertical spacing for all .animate-on-scroll elements */
+.animate-on-scroll {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
   from {
