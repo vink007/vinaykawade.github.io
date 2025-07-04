@@ -254,7 +254,7 @@ li {
 /* ===== HERO SECTION ===== */
 .hero {
   background-color: var(--bg-white);
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-sm) 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -365,7 +365,7 @@ li {
 
 /* ===== SECTIONS ===== */
 .section {
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-sm) 0;
 }
 
 .section-title {
@@ -659,7 +659,7 @@ li {
   }
   
   .section {
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-sm) 0;
   }
 }
 
