@@ -55,7 +55,6 @@
                 <h1 class="post-title">Python Multiprocessing with gRPC</h1>
                 <h1 class="post-title">What Still Bites</h1>
 
-                <p class="subtitle">Pitfalls, best practices, and real-world tips for Python multiprocessing with gRPC</p>
                 <div class="post-meta">
                     <span><i class="far fa-calendar-alt"></i> July 2025</span>
                 </div>
@@ -77,7 +76,7 @@
             </section>
 
             <section class="animate-on-scroll">
-                <h2>Client-Side: Common Pitfalls and Recommendations</h2>
+                <h2>Client-Side Common Pitfalls</h2>
                 <p>If you initialize a gRPC channel or stub <strong>before</strong> forking the process, the child process inherits socket file descriptors that are <strong>no longer valid</strong>. This is because the gRPC core uses native threads and background pollers to manage those sockets, and after a fork, the thread state and internal locks are inconsistent in the child process.</p>
                 <p>This often results in runtime errors like:</p>
                 <pre class="code-block"><code>OSError: [Errno 9] Bad file descriptor</code></pre>
@@ -99,7 +98,7 @@ GRPC_POLL_STRATEGY=poll
             </section>
 
             <section class="animate-on-scroll">
-                <h2>Server-Side: Forking with gRPC Servers</h2>
+                <h2>Server-Side Forking with gRPC Servers</h2>
                 <p>On the server side, forking after starting a gRPC server is <strong>not safe</strong>. Instead, the correct approach is to fork first and then start independent server instances in each child process. These server processes can share the same port using the <code>grpc.so_reuseport</code> option, which relies on the underlying OS to distribute incoming connections.</p>
                 <h3>Example:</h3>
                 <pre class="code-block"><code>from concurrent import futures
