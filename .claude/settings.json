@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:chatgpt.com)",
+      "Bash(ls -lh *.html)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(gh pr *)",
+      "Bash(gh api *)",
+      "Bash(git remote *)",
+      "Bash(git fetch *)",
+      "Bash(git merge *)",
+      "Bash(git ls-tree *)",
+      "Bash(git rm *)",
+      "Bash(git checkout *)",
+      "Bash(git stash *)"
+    ]
+  }
+}
