@@ -555,10 +555,52 @@ li {
   opacity: 0.9;
 }
 
+/* ===== PULL QUOTE ===== */
+.pull-quote {
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-md) var(--spacing-lg);
+  max-width: 700px;
+  border-left: 3px solid var(--primary);
+  background: linear-gradient(135deg, var(--primary-glow), transparent 70%);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.pull-quote::before {
+  content: '\201C';
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  color: var(--primary);
+  opacity: 0.4;
+  position: absolute;
+  top: 0.2rem;
+  left: 1rem;
+  line-height: 1;
+}
+
+.pull-quote p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--primary-light);
+  margin: 0 0 var(--spacing-xs) 0;
+  padding-left: var(--spacing-md);
+}
+
+.pull-quote cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+
 /* ===== IMAGE GALLERY ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: var(--spacing-sm);
   margin: var(--spacing-md) 0;
 }
@@ -568,7 +610,7 @@ li {
   overflow: hidden;
   position: relative;
   transition: all var(--transition-normal);
-  height: 250px;
+  height: 380px;
   cursor: pointer;
 }
 
@@ -597,12 +639,34 @@ li {
   transition: transform var(--transition-slow);
 }
 
+.gallery-item .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: var(--spacing-sm);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.75), transparent);
+  transform: translateY(30%);
+  opacity: 0;
+  transition: all var(--transition-normal);
+}
+
+.gallery-item:hover .caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .gallery-item:hover img {
   transform: scale(1.08);
 }
 
 .gallery-large {
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 }
 
 .gallery-featured {
@@ -611,7 +675,10 @@ li {
 
 @media (max-width: 768px) {
   .gallery, .gallery-large, .gallery-featured {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .gallery-item {
+    height: 300px;
   }
 }
 
