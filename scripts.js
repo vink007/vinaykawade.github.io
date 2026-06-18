@@ -96,6 +96,101 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
+  // Lightbox / showcase mode for gallery images
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'))
+    .filter(item => item.querySelector('img'));
+  const galleryImages = galleryItems.map(item => item.querySelector('img'));
+
+  if (galleryImages.length) {
+    // Build the overlay once
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.innerHTML =
+      '<button class="lightbox-btn lightbox-close" aria-label="Close showcase"><i class="fas fa-times"></i></button>' +
+      '<button class="lightbox-btn lightbox-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>' +
+      '<button class="lightbox-btn lightbox-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>' +
+      '<figure class="lightbox-figure">' +
+      '<img class="lightbox-img" src="" alt="">' +
+      '<figcaption class="lightbox-caption"></figcaption>' +
+      '</figure>' +
+      '<div class="lightbox-counter"></div>';
+    document.body.appendChild(lightbox);
+
+    const figure = lightbox.querySelector('.lightbox-figure');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+    const lightboxCounter = lightbox.querySelector('.lightbox-counter');
+    let currentIndex = 0;
+
+    function captionFor(img) {
+      const item = img.closest('.gallery-item');
+      const cap = item && item.querySelector('.caption');
+      return cap ? cap.textContent.trim() : (img.getAttribute('alt') || '');
+    }
+
+    function showImage(index) {
+      currentIndex = (index + galleryImages.length) % galleryImages.length;
+      const source = galleryImages[currentIndex];
+      figure.classList.add('loading');
+      const loader = new Image();
+      loader.onload = function() {
+        lightboxImg.src = source.src;
+        lightboxImg.alt = source.alt || '';
+        figure.classList.remove('loading');
+      };
+      loader.src = source.src;
+      lightboxCaption.textContent = captionFor(source);
+      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+    }
+
+    function openLightbox(index) {
+      showImage(index);
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openLightbox(index));
+    });
+
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', () => showImage(currentIndex - 1));
+    lightbox.querySelector('.lightbox-next').addEventListener('click', () => showImage(currentIndex + 1));
+
+    // Click on the backdrop (but not the image or buttons) closes it
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === figure) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      else if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(dx) > 50) showImage(currentIndex + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  }
+
   // Back to top button
   const backToTopButton = document.querySelector('.back-to-top');
   
