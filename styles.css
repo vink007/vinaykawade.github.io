@@ -610,7 +610,7 @@ li {
   overflow: hidden;
   position: relative;
   transition: all var(--transition-normal);
-  height: 380px;
+  height: 420px;
   cursor: pointer;
 }
 
